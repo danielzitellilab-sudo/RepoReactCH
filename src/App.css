@@ -2,10 +2,11 @@
   display: grid;
   grid-auto-rows: minmax(80px, auto);
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  justify-content: center;  /* centra el grid dentro del contenedor padre */
-  justify-items: center;    /* centra cada item en su celda */
+  justify-content: center;  
+  justify-items: center;    
   gap: 1rem;
   padding: 1rem;
+  padding-top: 40px;
 }
 
 .block-item {
@@ -18,3 +19,19 @@
   color: #fff;
   border-radius: 8px;
 }
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 40px;
+  }
+}
+
+.navbar-logo {
+  height: 100px;
+  transform: translateY(8px);
+}
+
+.navbar {
+  overflow: visible;
+}
+

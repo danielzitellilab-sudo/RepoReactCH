@@ -16,17 +16,14 @@ function NavBar(){
       variant="dark"
       expand="lg"
       sticky="top"
-      className="w-100"
-    >
+      className="w-100">
       <Container fluid>
-        <Navbar.Brand href="/">Abuela Comics</Navbar.Brand>
-        <Navbar.Toggle 
-          aria-controls="basic-navbar-nav" 
-        />
+        <img src="src/assets/abuelaestela.png" alt="Abuela Estela Comics" className="navbar-logo navbar-brand" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           {categories.map(cat => (
-              <Nav.Link key={cat.id} href={cat.path}>
+              <Nav.Link key={cat.id}>
                 {cat.name}
               </Nav.Link>
             ))}
