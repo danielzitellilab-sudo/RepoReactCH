@@ -6,11 +6,7 @@ function CartWidget (){
   return (
     <div className="d-flex align-items-center">
       <FaShoppingCart size={22} color="#fff" />
-      
-        <Badge bg="danger" pill className="ms-1">
-          4
-        </Badge>
-      
+      <Badge bg="danger" pill className="ms-1">4</Badge>
     </div>
   );
 };

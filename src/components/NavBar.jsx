@@ -6,7 +6,7 @@ function NavBar(){
   const [expanded, setExpanded] = useState(false);
   const categories = [
   { id: 1, name: 'Comics', path: '/categoria/comics' },
-  { id: 2, name: 'Figuras', path: '/categoria/figuras' },
+  { id: 2, name: 'Libros', path: '/categoria/libros' },
   { id: 3, name: 'Remeras', path: '/categoria/remeras' },
   { id: 4, name: 'Merch', path: '/categoria/merch' }];
   
