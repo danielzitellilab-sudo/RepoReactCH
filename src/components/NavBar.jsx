@@ -1,38 +1,47 @@
-import React, { useState } from 'react';
-import { Navbar, Nav, Container, NavDropdown, Button } from 'react-bootstrap';
-import CartWidget from './CartWidget'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import CartWidget from './CartWidget';
 
-function NavBar(){
+function NavBar({ categories = [] }) {
   const [expanded, setExpanded] = useState(false);
-  const categories = [
-  { id: 1, name: 'Comics', path: '/categoria/comics' },
-  { id: 2, name: 'Libros', path: '/categoria/libros' },
-  { id: 3, name: 'Remeras', path: '/categoria/remeras' },
-  { id: 4, name: 'Merch', path: '/categoria/merch' }];
-  
+
   return (
-    <Navbar 
+    <Navbar
       bg="dark"
       variant="dark"
       expand="lg"
       sticky="top"
-      className="w-100">
+      className="w-100"
+      expanded={expanded}
+      onToggle={setExpanded}
+    >
       <Container fluid>
-        <img src="src/assets/abuelaestela.png" alt="Abuela Estela Comics" className="navbar-logo navbar-brand" />
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-          {categories.map(cat => (
-              <Nav.Link key={cat.id}>
+        <img src="src/assets/abuelaestela.png" alt="Abuela Estela Comics" className="navbar-logo navbar-brand"/>
+        <Nav className="me-auto">
+            <NavDropdown title="Categories" id="categories-dropdown">
+            <NavDropdown.Item
+              as={Link}
+              to="/"
+              key="all"
+            >
+              All
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+              {categories.map((cat) => (
+                <NavDropdown.Item
+                as={Link}                     
+                to={`/category/${cat.name}`}
+                key={cat.name}>
                 {cat.name}
-              </Nav.Link>
-            ))}
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
           </Nav>
-        </Navbar.Collapse>
-        <CartWidget/>
+        <CartWidget />
       </Container>
     </Navbar>
   );
-};
+}
 
 export default NavBar;
