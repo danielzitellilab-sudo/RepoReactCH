@@ -16,12 +16,13 @@ El proyecto fue desarrollado como parte del curso de React en **CoderHouse**.
 
 | Tecnología | Uso |
 |---|---|
-| [React 18](https://react.dev/) | Framework principal |
+| [React 19](https://react.dev/) | Framework principal |
 | [React Router v7](https://reactrouter.com/) | Navegación SPA |
-| [React Bootstrap](https://react-bootstrap.github.io/) | Componentes UI |
-| [Firebase / Firestore](https://firebase.google.com/) | Base de datos y persistencia de órdenes |
-| [React Icons](https://react-icons.github.io/react-icons/) | Iconografía |
+| [Bootstrap 5](https://getbootstrap.com/) + [React Bootstrap 2](https://react-bootstrap.github.io/) | Componentes UI |
+| [Firebase v12 / Firestore](https://firebase.google.com/) | Base de datos y persistencia de órdenes |
+| [React Icons 5](https://react-icons.github.io/react-icons/) | Iconografía |
 | [Vite](https://vitejs.dev/) | Bundler y dev server |
+
 
 ---
 
@@ -148,5 +149,5 @@ El proyecto usa tres colecciones en Firestore:
 ## 👤 Autor
 
 **Daniel Zitelli**  
-Proyecto final — React JS · CoderHouse  
+Proyecto final — React JS · CoderHouse Comisión 81665
 [GitHub](https://github.com/danielzitellilab-sudo)
