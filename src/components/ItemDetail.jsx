@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import Counter from './Counter';
+import { useCart } from '../context/CartContext';
 
 function ItemDetail({ item }) {
-  const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(1);
+    const { addItem } = useCart();
 
-  const handleAddToCart = () => {
-    console.log(`Add ${quantity} units of ${item.title} to cart`);
-  };
+    const handleAddToCart = () => {
+        addItem(item, quantity);
+    };
 
   return (
     <Container fluid className="py-5">
@@ -18,8 +20,8 @@ function ItemDetail({ item }) {
               <Col md={5}>
                 <div className="position-relative h-100">
                   <Card.Img 
-                    src={item.images[0]}
-                    alt={item.title}
+                    src={item.image_url}
+                    alt={item.name}
                     className="w-100 rounded-start"
                     style={{ 
                         height: '500px', 
@@ -35,11 +37,12 @@ function ItemDetail({ item }) {
                 <Card.Body className="p-5">
                   <div className="d-flex justify-content-between align-items-start mb-3">
                     <div>
-                      <h1 className="display-5 fw-bold mb-2">{item.title}</h1>
-                      <h6 className="text-muted mb-3">{item.brand}</h6>
-                    </div>
+                      <h1 className="display-5 fw-bold mb-2">{item.name}</h1>
+                     </div>
                   </div>
-
+                  <Card.Title className="flex-grow-1 text-muted small" title={item.category.map((cat) => cat)}>
+                     Categories: {item.category.map((cat) => cat + ", ")}
+                  </Card.Title>
                   <div className="mb-4">
                     <h5 className="fw-bold mb-2">Description:</h5>
                     <p className="lead">{item.description}</p>
@@ -51,11 +54,7 @@ function ItemDetail({ item }) {
                         <i className="bi bi-check-circle-fill text-success me-2"></i>
                         <strong>Stock: </strong> {item.stock} units
                       </div>
-                      <div className="d-flex align-items-center">
-                        <i className="bi bi-star-fill text-warning me-2"></i>
-                        <strong>Rating: </strong> {item.rating}/5
-                      </div>
-                    </div>
+                     </div>
                   </div>
 
                   <hr />
@@ -77,18 +76,18 @@ function ItemDetail({ item }) {
                       />
                     </div>
 
-                    {/*<div className="text-center">
+                    {<div className="text-center">
                       <div className="h4 fw-bold text-dark mb-0">
                         Total: ${(item.price * quantity).toLocaleString()}
                       </div>
-                    </div>*/}
+                    </div>}
                   </div>
                   <div className="d-grid">
                     <Button 
                       variant="success" 
                       size="lg" 
                       className="px-5 py-3 fw-bold fs-5 shadow-lg"
-                      onClick={() => alert("todavia no agrega al carrito")}
+                      onClick={handleAddToCart}
                     >
                       <i className="bi bi-cart-plus me-2"></i>
                       Add to cart ({quantity})
